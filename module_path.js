@@ -26,7 +26,7 @@ require.config({
 });
 
 require(['jQuery','backbone','bootstrap','controllers/backboneRouter'],function($,Backbone,bootstrap,backboneRouter){
-	console.log("Modules loaded!!");
+	
 });
 
  

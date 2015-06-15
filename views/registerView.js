@@ -30,13 +30,13 @@ define(['text!views/registerTemplate.tpl','models/registerUserModel','controller
            var registerUserModel= new RegisterUserModel(options);
            registerUserModel.save({},{
             error:function(){
-                    console.log("Error while saving the user");
+                   
                      var registerSuccessHTML= "<div class='row'><div class='col-xs-2' style='margin-top: 11px;'><img src='public/assets/images/error.png'></div>"+
                     "<div class='col-xs-9' style='padding-left:0px !important'><h5><strong>Something went wrong during registration</strong></h5></div></div>";
                     $("#registerInfo").append(registerSuccessHTML);
            },
            success:function(){
-                console.log("Saving the user success!!");
+                
                  var registerErrorHTML= "<div class='row'><div class='col-xs-2' style='margin-top: 11px;'><img src='public/assets/images/success.png'></div>"+
                     "<div class='col-xs-9' style='padding-left:0px !important'><h5><strong>Registration successful</strong></h5><a href='#'></a></div></div>";
                     $("#registerInfo").append(registerErrorHTML);

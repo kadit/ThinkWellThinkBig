@@ -16,7 +16,7 @@ define(['text!views/loginTemplate.tpl','models/loginModel','controllers/backbone
             var loginModel= new LoginModel({ userMailId: email, userPassword: password });
             loginModel.save({},{
             	error:function(model, xhr, options){
-            		console.log("Login Error");
+            		
                      var loginErrorHTML= "<div class='row'><div class='col-xs-2' style='margin-top: 11px;'><img src='public/assets/images/error.png'></div>"+
                     "<div class='col-xs-9' style='padding-left:0px !important'><h5><strong>Login error</strong></h5></div></div>";
                     $("#loginError").append(loginErrorHTML);

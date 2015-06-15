@@ -198,7 +198,7 @@ app.post('/UsersToGroup',function(req,res){
 				user.userInGroups.push(groupName);
 				user.save(function(err,data){
 					if(err){
-			 					console.log("Error adding group to user "+user.userMailId);
+			 					console.log("Error adding group to user ");
 			 			}
 				});
 			});

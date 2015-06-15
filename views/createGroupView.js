@@ -12,11 +12,10 @@ define(['text!views/createGroupTemplate.tpl','models/groupModel','controllers/ba
             var createGroupModel= new GroupModel({ groupName: groupName});
             createGroupModel.save({},{
                 error:function(model, xhr, options){
-                    console.log("Create group Error");
+                   
             },success:function(model, response, options){
                 that.undelegateEvents();
                    if(response.createStatus===1){
-                        console.log("Create group Success");
                         window.location.hash = 'main';
                    }
             }});

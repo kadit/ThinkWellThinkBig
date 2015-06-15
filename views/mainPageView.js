@@ -59,18 +59,18 @@ define(['text!views/mainPageTemplate.tpl','text!views/groupDetailsTemplate.tpl',
              var groupConversationModel= new GroupConversationModel({groupName: this.selectedGroupName, groupPost : msg});
              groupConversationModel.save({},{
                 success:$.proxy(function(model, response, options){
-                    console.log("Posted successfully to the group");
+                   
                     this._fetchAndDisplayGroupConversation();
 
                 },this),
                 error:function(model, xhr, options){
-                     console.log("Error while posting");
+                     
                 }
              });
         },
         addUserToGrp:function(e){
             e.stopPropagation();
-            console.log("Add users called");
+           
             var allVals = [];
              $('#userDetailsChk :checked').each(function() {
                 var value= $(this).val();
@@ -80,7 +80,7 @@ define(['text!views/mainPageTemplate.tpl','text!views/groupDetailsTemplate.tpl',
                 }
                allVals.push(obj);
              });
-             console.log(allVals);
+            
              var options= {
                 groupName:  this.selectedGroupName,
                 usersToBeAdded: allVals
@@ -104,8 +104,6 @@ define(['text!views/mainPageTemplate.tpl','text!views/groupDetailsTemplate.tpl',
         },
         showGroupConversation: function(e){
           //selection preserve
-          
-
             e.stopPropagation();
             e.preventDefault();
             $(".selected").removeClass("selected");
@@ -124,7 +122,7 @@ define(['text!views/mainPageTemplate.tpl','text!views/groupDetailsTemplate.tpl',
                      $("#pageContent").html(template({"groupConvs":response[0].groupConversation}));
                 },this),
                 error:function(model, response, options){
-                    console.log("Error");
+                   
                 
                 }
             });
@@ -135,18 +133,18 @@ define(['text!views/mainPageTemplate.tpl','text!views/groupDetailsTemplate.tpl',
             $(".selected").removeClass("selected");
             $(e.currentTarget.parentNode).addClass("selected");
             this.selectedGroupName=$(e.currentTarget.parentNode.childNodes[0].nextSibling).text().trim();
-            console.log("Group Details Clicked"+ this.selectedGroupName);
+            
             var groups= new GroupModel();
             groups.fetch({
             data: {groupName: this.selectedGroupName},
             success:$.proxy(function(model, response, options){
-                console.log("Success");
+               
                 var template= _.template(groupDetailsTemplate);
                 $("#pageContent").html(template({"groupDetails":response[0].groupMembers}));
                 
             },this),
             error:function(model, response, options){
-                console.log("Error");
+               
                 
             }});
 
@@ -164,7 +162,7 @@ define(['text!views/mainPageTemplate.tpl','text!views/groupDetailsTemplate.tpl',
                     }
                 },
                 error:function(model, response, options){
-                    console.log("Error logging out");
+                  
                 }
             });
 
@@ -192,7 +190,7 @@ define(['text!views/mainPageTemplate.tpl','text!views/groupDetailsTemplate.tpl',
                          this.$el.html(template({"items":response,"users":userResponse}));
                     },this),
                     error:function(usermodel, userResponse, useroptions){
-                        console.log("Error fetching users");
+                       
                         window.location.hash = '';
                     }
                 });
@@ -200,7 +198,7 @@ define(['text!views/mainPageTemplate.tpl','text!views/groupDetailsTemplate.tpl',
                
             },this),
             error:function(model, response, options){
-                 console.log("Error");
+                
                  window.location.hash = '';
             }});
 			
@@ -211,4 +209,3 @@ define(['text!views/mainPageTemplate.tpl','text!views/groupDetailsTemplate.tpl',
 	return MainPageView;
 });
 
-//# sourceURL=executor.js
