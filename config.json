@@ -1,0 +1,9 @@
+{
+	"auth":{
+		"user":"",
+		"pass":""
+	},
+	"mongoose":{
+		"connectURL":""
+	}
+}

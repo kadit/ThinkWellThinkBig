@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+  <title>Demo &raquo; Add widgets dynamically &raquo; gridster.js</title>
+  <link rel="stylesheet" type="text/css" href="../dist/jquery.gridster.css">
+  <link rel="stylesheet" type="text/css" href="demo.css">
+</head>
+
+<body>
+
+    <div class="gridster">
+        <ul></ul>
+    </div>
+
+    <script type="text/javascript" src="../libs/jquery/jquery.js"></script>
+    <script src="../dist/jquery.gridster.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="//localhost/testapp/testapp/js/jquery/jquery-tmpl-master/jquery.tmpl.js"></script> 
+
+    <script type="text/javascript" id="code">
+    var gridster;
+    var widgets = [
+        ['<li id = \'a\'>0</li>', 1, 10],
+        ['<li id = \'b\'>1</li>', 1, 10],
+        ['<li id = \'c\'>2</li>', 1, 10],
+        ['<li id = \'d\'>3</li>', 1, 10]/*,
+        ['<li id = \'e\'>4</li>', 1, 1],
+        ['<li id = \'f\'>5</li>', 1, 2],
+        ['<li id = \'g\'>6</li>', 2, 1],
+        ['<li id = \'h\'>7</li>', 1, 2],
+        ['<li id = \'i\'>8</li>', 1, 1],
+        ['<li id = \'j\'>9</li>', 2, 2],
+        ['<li id = \'k\'>10</li>', 1, 3]*/
+    ];
+function GridTest () {
+    grid = $(".gridster > ul").gridster({
+        widget_margins: [5, 5],
+        widget_base_dimensions: [300, 10], 
+        min_cols: 3,
+        max_cols:3
+    }).data('gridster');
+    return grid;
+};
+function test () {
+    var newGrid  = GridTest();
+    $(".gridster").css("width", newGrid.cols * 300 + (newGrid.cols * 20));
+    $.each(widgets, function(i, widget){
+        newGrid.add_widget.apply(newGrid, widget)
+    });
+};
+function test1 () {
+    var newGrid  = GridTest();
+    var widget = ['<li id = \'a\'>10</li>', 1, 10];
+    $(".gridster").css("width", newGrid.cols * 300 + (newGrid.cols * 20));
+    newGrid.add_widget.apply(newGrid, widget)
+    
+};
+$(function(){
+    test();
+});
+    </script>
+</body>
+</html>
