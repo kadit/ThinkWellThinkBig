@@ -1,4 +1,4 @@
-ThinkWellThinkBig is an idea sharing forum which facilitate sharing of ideas among trusted groups.
+ThinkWellThinkBig is an idea sharing forum which facilitates sharing of ideas among trusted groups.
 A user can create a group and invite his friends via emails, to join the group.
 
 His friend receives a one time password, using which, he can register himself and gets automatically added to the 
