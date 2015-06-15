@@ -5,6 +5,7 @@ define(['text!views/createGroupTemplate.tpl','models/groupModel','controllers/ba
             "click #createGroupBtn": "createGroup"
         },
 		createGroup: function(e){
+            debugger;
             e.stopPropagation();
             e.preventDefault();
             var that=this;
@@ -14,7 +15,7 @@ define(['text!views/createGroupTemplate.tpl','models/groupModel','controllers/ba
                 error:function(model, xhr, options){
                    
             },success:function(model, response, options){
-                that.undelegateEvents();
+                
                    if(response.createStatus===1){
                         window.location.hash = 'main';
                    }
@@ -28,3 +29,5 @@ define(['text!views/createGroupTemplate.tpl','models/groupModel','controllers/ba
 	});
 	return CreateGroupView;
 });
+
+//# sourceURL=executor.js
